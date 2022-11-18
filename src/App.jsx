@@ -1,10 +1,14 @@
-import './App.css'
 import WeatherApp from './components/WeatherApp'
+import Header from './components/Header';
+import { WeatherProvider } from './context/WeatherProvider';
 
 function App() {
 
   return (
-    <WeatherApp />
+    <WeatherProvider>
+      <Header />
+      <WeatherApp />
+    </WeatherProvider>
   )
 }
 
