@@ -2,7 +2,9 @@ import Form from "./Form";
 
 const WeatherApp = () => {
     return (
-        <Form />
+        <main className="two-columns">
+            <Form />
+        </main>
     );
 }
 
