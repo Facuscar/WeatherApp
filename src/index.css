@@ -91,3 +91,32 @@ form {
 .warning {
   text-align: center;
 }
+
+.weather {
+
+}
+
+.weather h2 {
+  text-align: center;
+}
+
+.weather > p:first-of-type {
+  font-size: 5rem;
+  font-weight: bold;
+}
+
+.weather p {
+  text-align: center;
+  margin: 0;
+}
+
+.weather p span {
+  font-size: 1.6rem;
+}
+
+.temps {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+  gap: 4rem;
+}

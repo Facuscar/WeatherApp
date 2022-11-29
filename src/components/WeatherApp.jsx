@@ -5,7 +5,7 @@ import useWeather from "../hooks/useWeather";
 const WeatherApp = () => {
 
     const { result } = useWeather();    
-    console.log(result);
+    
     return (
         <main className="two-columns">
             <Form />
