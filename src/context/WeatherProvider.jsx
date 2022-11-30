@@ -11,6 +11,8 @@ export const WeatherProvider = ({ children }) => {
     });
 
     const [result, setResult] = useState({});
+    const [loading, setLoading] = useState(false);
+    const [notFound, setNotFound] = useState(false);
 
     const searchData = (e) => {
         setSearch((prev) => (
@@ -29,6 +31,8 @@ export const WeatherProvider = ({ children }) => {
 
           const url = `https://api.openweathermap.org/data/2.5/weather?q=${city},${country}&appid=${appId}`
 
+          setLoading(true);
+
           const { data } = await axios(url);
           
           const { lat, lon } = data.coord;
@@ -38,14 +42,18 @@ export const WeatherProvider = ({ children }) => {
           const { data: weatherData } = await axios(weatherUrl);
 
           setResult(weatherData);
+          setNotFound(false);
 
         } catch (error) {
             console.log(error);
+            setNotFound(true);
+        } finally {
+            setLoading(false);
         }
     }
 
     return (
-        <WeatherContext.Provider value={{ search, searchData, getWeather, result }}>
+        <WeatherContext.Provider value={{ search, searchData, getWeather, result, loading, notFound }}>
             {children}
         </WeatherContext.Provider>
     );
